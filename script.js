@@ -26,19 +26,9 @@ async function getQuoteFromAPI() {
     const response = await fetch(proxyUrl + apiUrl);
     const data = await response.json();
     //If Author is blank, add 'Unknown'
-    // if (data.quoteAuthor === '') {
-    //   authorText.innerText = 'Unknown';
-    // } else {
-    //   authorText.innerText = data.quoteAuthor;
-    // }
     authorText.innerText =
       data.quoteAuthor === "" ? "Unknown" : data.quoteAuthor;
     //Reduce font size for long quotes
-    // if (data.quoteText.length > 50) {
-    //   quoteText.classList.add("long-quote");
-    // } else {
-    //   quoteText.classList.remove("long-quote");
-    // }
     data.quoteText.length > 120
       ? quoteText.classList.add("long-quote")
       : quoteText.classList.remove("long-quote");
